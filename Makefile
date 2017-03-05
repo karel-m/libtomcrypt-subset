@@ -89,7 +89,7 @@ OBJS=ltc/hashes/helper/hash_memory.o ltc/hashes/helper/hash_memory.o ltc/hashes/
  ltm/bn_s_mp_sqr.o ltm/bn_s_mp_sub.o ltm/bn_s_mp_sub.o ltm/bncore.o ltm/bncore.o
 
 main: liballinone.a main.c
-	$(CC) main.c -o main -DUSE_LTM -DLTM_DESC -Iltc/headers -Iltm -L. -lallinone
+	$(CC) $(CFLAGS) main.c -o main -DUSE_LTM -DLTM_DESC -Iltc/headers -Iltm -L. -lallinone $(LDFLAGS)
 
 liballinone.a: $(OBJS)
 	ar cr $@ $(OBJS)
